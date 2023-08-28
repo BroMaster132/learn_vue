@@ -1,29 +1,21 @@
 <script setup>
-    import {ref} from 'vue'
-    const counter = ref(0)
-
-    const increase = () => {
-        counter.value++
-    }
-    const decrease = ()  =>{
-        counter.value--
-    }
+import ButtonDelete from '@/components/ButtonDelete.vue'
+import CarList from '@/components/CarList.vue'
 </script>
 
 <template>
-    <div class="test">
-        {{ counter }}
-        <button @click="increase">Increase</button>
-        <button @click="decrease">Deacrease</button>
-    </div>
-    <audio controls>
+
+    <ButtonDelete />
+    <CarList />
+
+    <!-- <audio controls>
         <source src="myAudio.mp3" type="audio/mpeg" />
         <source src="myAudio.ogg" type="audio/ogg" />
         <p>
           Ваш браузер не поддерживает HTML5 аудио. Вот взамен
           <a href="myAudio.mp4">ссылка на аудио</a>
         </p>
-      </audio>
+    </audio> -->
 </template>
 
 <style scoped>
