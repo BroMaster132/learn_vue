@@ -8,7 +8,7 @@ const carsArray = [
         year : 1994,
         volume: 2.4,
         color : '#FF0000',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFN0lN7T1WyAETO84V2umxeofkkkl6684bmI01rC_I&s'
+        image: 'https://wipertech.sfo2.cdn.digitaloceanspaces.com/vehicles/bmw/_small/bmw-3-series-compact-e36-1994-2000.png'
     },
 ]
 

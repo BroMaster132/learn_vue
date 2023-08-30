@@ -1,21 +1,20 @@
 <script setup>
-import ButtonDelete from '@/components/ButtonDelete.vue'
+// import ButtonDelete from '@/components/ButtonDelete.vue' Example
 import CarList from '@/components/CarList.vue'
+import NavigationBar from '@/components/NavigationBar.vue';
+import Footer from '@/components/Footer.vue';
 </script>
 
 <template>
-
+    <NavigationBar />
     <ButtonDelete />
-    <CarList />
 
-    <!-- <audio controls>
-        <source src="myAudio.mp3" type="audio/mpeg" />
-        <source src="myAudio.ogg" type="audio/ogg" />
-        <p>
-          Ваш браузер не поддерживает HTML5 аудио. Вот взамен
-          <a href="myAudio.mp4">ссылка на аудио</a>
-        </p>
-    </audio> -->
+    <div class="content">
+      <CarList />
+      <CarList />
+
+    </div>
+    <Footer />
 </template>
 
 <style scoped>
