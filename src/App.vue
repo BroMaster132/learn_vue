@@ -3,6 +3,8 @@
 import CarList from '@/components/CarList.vue'
 import NavigationBar from '@/components/NavigationBar.vue';
 import Footer from '@/components/Footer.vue';
+import Card from 'primevue/card';
+
 </script>
 
 <template>
@@ -11,7 +13,6 @@ import Footer from '@/components/Footer.vue';
 
     <div class="content">
       <CarList />
-      
 
     </div>
     <Footer />

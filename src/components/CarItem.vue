@@ -1,6 +1,8 @@
 <script setup>
 import { computed, defineProps } from 'vue';
-
+import Card from 'primevue/card';
+import Chip from 'primevue/chip';
+import 'primeicons/primeicons.css';
 const props = defineProps ({
     car: {
         type: Object,
@@ -28,23 +30,29 @@ function changeColor (color){
 </script>
 
 <template>
-    <div class="car">
-      <img width="175" :src="carRemake.image" alt="car" />
-      <h2>{{carRemake.brand }}</h2>
-      <p>Цена: {{carRemake.price }}</p>
-      <p>Год выпуска: {{carRemake.year }}</p>
-      <p>Объем двигателя: {{carRemake.volume }}</p>
-      <p :style="`color: ${carRemake.color}`">Цвет: {{carRemake.color }}</p>
-      <div class="chipes">
-          <span v-if="Number(carRemake.price.slice(0,-1)) > 1000000">Дорогой</span>
-          <span v-else-if="carRemake.year <= 2000">Старый</span>
-          <span v-else>Скучный</span>
-          <span v-if="changeColor(carRemake.color)">Конченный цвет</span>
-          <span v-show="carRemake.volume > 2">Большой объём</span>
-      </div>
-      <p>Efficiency: {{Math.floor(carRemake.efficiency) }} </p>
-    </div>
-  </template>
+  <Card>
+      <template #header>
+          <img :src="carRemake.image" alt="car" class="car-image">
+      </template>
+      <template #title>{{carRemake.brand }}</template>
+      <template #content>
+        <p>Цена: {{carRemake.price }}</p>
+        <p>Год выпуска: {{carRemake.year }}</p>
+        <p>Объем двигателя: {{carRemake.volume }}</p>
+        <p :style="`color: ${carRemake.color}`">Цвет: {{carRemake.color }}</p>
+        <p>Efficiency: {{Math.floor(carRemake.efficiency) }} </p>
+      </template>
+      <template #footer>
+        <div class="chipes">
+            <Chip v-if="Number(carRemake.price.slice(0,-1)) > 1000000" label="Дорогой" icon="pi pi-dollar" />
+            <Chip v-else-if="carRemake.year <= 2000" label="Старый" icon="pi pi-facebook" />
+            <Chip v-if="changeColor(carRemake.color)" label="Конченный цвет" icon="pi pi-exclamation-triangle" />
+            <Chip v-else label="Скучый" icon="pi pi-briefcase" />
+            <Chip v-show="carRemake.volume > 2" label="Большой объём" icon="pi pi-arrow-up" removable />
+        </div>
+      </template>
+  </Card>
+</template>
 
 <style scoped>
     .car {
