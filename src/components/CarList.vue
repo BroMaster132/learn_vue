@@ -10,6 +10,7 @@ const carsArray = [
         color : '#FF0000',
         image: 'https://wipertech.sfo2.cdn.digitaloceanspaces.com/vehicles/bmw/_small/bmw-3-series-compact-e36-1994-2000.png'
     },
+    
 ]
 
     console.log(carsArray);

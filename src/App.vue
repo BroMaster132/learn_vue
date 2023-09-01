@@ -11,7 +11,7 @@ import Footer from '@/components/Footer.vue';
 
     <div class="content">
       <CarList />
-      <CarList />
+      
 
     </div>
     <Footer />
