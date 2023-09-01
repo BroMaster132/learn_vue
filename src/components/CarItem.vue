@@ -14,7 +14,7 @@
       <p>Цена: {{props.car.price }}</p>
       <p>Год выпуска: {{props.car.year }}</p>
       <p>Объем двигателя: {{props.car.volume }}</p>
-      <p>Цвет: {{props.car.color }}</p>
+      <p :style="`color: ${props.car.color}`">Цвет: {{props.car.color }}</p>
     </div>
   </template>
 
