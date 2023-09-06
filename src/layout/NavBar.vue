@@ -1,5 +1,22 @@
 <script setup>
+import Button from 'primevue/button'
+import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 
+const googleRegister = () => {
+  const auth = getAuth()
+  const provider = new GoogleAuthProvider()
+
+  signInWithPopup(auth, provider)
+    .then((userCredential) => {
+      const user = userCredential.user
+      localStorage.setItem('user', JSON.stringify(user))
+    })
+    .catch((error) => {
+      const errorCode = error.code
+      const errorMessage = error.message
+      console.log(errorCode, errorMessage)
+    })
+}
 </script>
 
 <template>
@@ -10,7 +27,7 @@
             <li><a href="#">Authors</a></li>
             <li><a href="#">About</a></li>
         </ul>
-        <li style="margin-left: 70%;"><a href="#">Contact Us</a></li>
+        <li style="margin-left: 70%;"><a href="#" @click="googleRegister">Sign in</a></li>
     </nav>
 </template>
 

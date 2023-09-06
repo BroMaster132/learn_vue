@@ -1,5 +1,5 @@
 <script setup>
-import NavigationBar from '@/components/NavigationBar.vue';
+import NavBar from '@/layout/NavBar.vue';
 import Footer from '@/components/Footer.vue';
 import Card from 'primevue/card';
 import CarItem from '@/components/CarItem.vue'
@@ -28,11 +28,10 @@ const cars = [
     
 ]
 
-    console.log(cars);
 </script>
 
 <template>
-    <NavigationBar />
+    <NavBar />
     <CarList :cars="cars" />
     <CarTable :cars="cars" />
     <Footer />
