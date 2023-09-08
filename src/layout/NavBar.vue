@@ -1,6 +1,16 @@
 <script setup>
 import Button from 'primevue/button'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
+import { useAuto } from '@/composable/useAuto'
+import { onMounted } from 'vue';
+import { async } from '@firebase/util';
+
+const {auto, createAuto} = useAuto()
+
+onMounted(async () =>{
+    await createAuto()
+    
+})
 
 const googleRegister = () => {
   const auth = getAuth()
@@ -27,7 +37,11 @@ const googleRegister = () => {
             <li><a href="#">Authors</a></li>
             <li><a href="#">About</a></li>
         </ul>
+
         <li style="margin-left: 70%;"><a href="#" @click="googleRegister">Sign in</a></li>
+        <button @click="createAuto">
+            <i class="pi pi-plus" />
+        </button>
     </nav>
 </template>
 
