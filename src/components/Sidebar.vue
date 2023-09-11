@@ -4,6 +4,7 @@ import 'primeicons/primeicons.css';
 import { ref } from "vue";
 import InputText from 'primevue/inputtext';
 import Toast from 'primevue/toast';
+import InputSwitch from 'primevue/inputswitch';
 
 import { useToast } from "primevue/usetoast";
 const toast = useToast();
@@ -31,13 +32,22 @@ function check(value) {
 window.addEventListener("DOMContentLoaded", ()=>{
     showInfo()
 })
+
+
+const checked = ref(false);
 </script>
+
 
 <template>
     <Toast />
     <div class="card flex justify-content-center">
         <Sidebar v-model:visible="visible">
             <h2>Sidebar</h2>
+            <div class="card flex justify-content-center" >
+                <InputSwitch v-model="checked" />
+                <span>Light/Dark Theme</span>
+            </div>
+            <br>
             <div class="card flex justify-content-center" >
                 <InputText type="text" v-model="value" @change="check(value)" />
             </div>
@@ -52,5 +62,5 @@ window.addEventListener("DOMContentLoaded", ()=>{
 <style scoped>
     i {
         cursor: pointer;
-    }
+    }   
 </style>
