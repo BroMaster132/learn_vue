@@ -5,6 +5,7 @@ import { ref } from "vue";
 import InputText from 'primevue/inputtext';
 import Toast from 'primevue/toast';
 import InputSwitch from 'primevue/inputswitch';
+import InputMask from 'primevue/inputmask';
 
 import { useToast } from "primevue/usetoast";
 const toast = useToast();
@@ -15,16 +16,22 @@ const showInfo = () => {
 };
 
 const showWarn = () => {
-    toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Message Content', life: 3000 });
+    toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Fill the form', life: 3000 });
 };
 
 
 const visible = ref(false);
 
-const value = ref(null);
+const phone = ref(null)
 
-function check(value) {
+function checkText(value) {
     if(value == ''){
+        showWarn()
+    }
+
+}
+function checkPhone(value) {
+    if(phone.value == ''){
         showWarn()
     }
 }
@@ -43,13 +50,18 @@ const checked = ref(false);
     <div class="card flex justify-content-center">
         <Sidebar v-model:visible="visible">
             <h2>Sidebar</h2>
-            <div class="card flex justify-content-center" >
+             <div class="card flex justify-content-center" id="theme" > <!--Dont work yet -->
                 <InputSwitch v-model="checked" />
-                <span>Light/Dark Theme</span>
+                <br><span>Light/Dark Theme</span>
             </div>
             <br>
             <div class="card flex justify-content-center" >
-                <InputText type="text" v-model="value" @change="check(value)" />
+                <InputText type="text" v-model="value" @change="checkText(value)" placeholder="Введите текст"/>
+            </div>
+            <br>
+            <div class="flex-auto">
+                <label for="phone">Phone</label><br>
+                <InputMask v-model="phone" @change="checkPhone()" date="phone" mask=" +9(999) 999-9999" placeholder="+9(999) 999-9999" />
             </div>
 
                     
@@ -63,4 +75,8 @@ const checked = ref(false);
     i {
         cursor: pointer;
     }   
+    #theme{
+        display: flex;
+        flex-direction: row;
+    }
 </style>
