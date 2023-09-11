@@ -30,7 +30,7 @@ export const useAuto = () => {
   async function createAuto() {
     loading.value.newAuto = true
     try {
-      // await addDoc(collection(db, 'autos'), newAuto.value).then(() => {
+      // await addDoc(collection(db, 'autos'), auto.value).then(() => {
       //   console.log('Cars added')
       // })
     } catch (e) {
