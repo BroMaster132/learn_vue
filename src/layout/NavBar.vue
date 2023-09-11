@@ -37,7 +37,6 @@ const googleRegister = () => {
             <li><a href="#">Authors</a></li>
             <li><a href="#">About</a></li>
         </ul>
-
         <li style="margin-left: 70%;"><a href="#" @click="googleRegister">Sign in</a></li>
         <button @click="createAuto">
             <i class="pi pi-plus" />

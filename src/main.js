@@ -8,6 +8,8 @@ import 'primevue/resources/themes/saga-blue/theme.css'
 import 'primevue/resources/primevue.min.css'
 import 'primevue/resources/themes/viva-dark/theme.css'
 import { initializeApp } from "firebase/app";
+import ToastService from 'primevue/toastservice';
+
 const firebaseConfig = {
   apiKey: "AIzaSyCoaVsPNtrMlBJ1JYSD5s7EsxsQmGzubb8",
   authDomain: "learn-vue-b1afe.firebaseapp.com",
@@ -24,7 +26,12 @@ initializeApp(firebaseConfig);
 
 app.use(PrimeVue);
 
+app.use(ToastService);
+
 app.use(router)
 
 app.mount('#app')
+
+
+
 

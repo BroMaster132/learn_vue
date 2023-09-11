@@ -5,7 +5,7 @@ import Card from 'primevue/card';
 import CarItem from '@/components/CarItem.vue'
 import CarList from '@/components/CarList.vue'
 import CarTable from '@/components/CarTable.vue'
-
+import Sidebar from '@/components/Sidebar.vue';
 const cars = [
   {
     brand: 'BMW',
@@ -31,9 +31,11 @@ const cars = [
 
 <template>
     <NavBar />
+    <Sidebar />
     <CarList :cars="cars" />
     <CarTable :cars="cars" />
     <Footer />
+
 </template>
 
 <style scoped>
