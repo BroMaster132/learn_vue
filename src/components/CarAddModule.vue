@@ -6,63 +6,62 @@
                 <div class="p-fluid">
                     <div class="p-field">
                         <label for="brand">Бренд</label>
-                        <Dropdown id="brand" v-model="auto.brand" editable :options="brandLabel" option-label="brand" option-value="brand" placeholder="Бренд" />
+                        <Dropdown id="brand" v-model="newAuto.brand" editable :options="brandLabel" option-label="brand" option-value="brand" placeholder="Бренд" />
                     </div>
                     <div class="p-field">
                         <label for="price">Цена</label>
-                        <InputNumber id="price" v-model="auto.price" mode="currency" currency="KZT" locale="ru-ru" />
+                        <InputNumber id="price" v-model="newAuto.price" mode="currency" currency="KZT" locale="ru-ru" />
                     </div>
                     <div class="p-field">
                         <label for="year">Год</label>
-                        <Calendar id="year" v-model="auto.year" view="year" dateFormat="yy" />
+                        <Calendar id="year" v-model="newAuto.year" view="year" dateFormat="yy" />
                     </div>
                     <div class="p-field">
                         <label for="volume">Объем</label>
-                        <InputNumber id="volume" v-model="auto.volume" inputId="minmax" :min="0.5" :max="45" />
+                        <InputNumber id="volume" v-model="newAuto.volume" inputId="minmax" :min="0.5" :max="45" />
                     </div>
                     <div class="p-field">
                         <label for="color">Цвет</label>
-                        <ColorPicker id="color" v-model="auto.color" inline />
+                        <ColorPicker id="color" v-model="newAuto.color" inline />
                     </div>
                     <div class="p-field">
                         <label for="city">Город</label>
-                        <Dropdown id="city" v-model="auto.city" editable :options="brandLabel" option-label="brand" option-value="brand" placeholder="Бренд" />
+                        <Dropdown id="city" v-model="newAuto.city" editable :options="cityLabel" option-label="city" option-value="city" placeholder="Город" />
                     </div>
                     <div class="p-field">
                         <label for="carcase">Кузов</label>
-                        <Dropdown id="carcase" v-model="auto.carcase" editable :options="brandLabel" option-label="brand" option-value="brand" placeholder="Бренд" />
+                        <Dropdown id="carcase" v-model="newAuto.carcase" editable :options="brandLabel" option-label="carcase" option-value="carcase" placeholder="Кузов" />
                     </div>
                     <div class="p-field">
                         <label for="gear">Коробка</label>
                         <div class="flex flex-wrap gap-3">
                             <div class="flex align-items-center">
-                                <RadioButton v-model="auto.gear" inputId="ingredient1" name="pizza" value="Механическая" />
+                                <RadioButton v-model="newAuto.gear" inputId="ingredient1" name="pizza" value="Механическая" />
                                 <label for="ingredient1" class="ml-2">Механическая</label>
                             </div>
                             <div class="flex align-items-center">
-                                <RadioButton v-model="auto.gear" inputId="ingredient2" name="pizza" value="Автоматическая" />
+                                <RadioButton v-model="newAuto.gear" inputId="ingredient2" name="pizza" value="Автоматическая" />
                                 <label for="ingredient2" class="ml-2">Автоматическая </label>
                             </div>
                             <div class="flex align-items-center">
-                                <RadioButton v-model="auto.gear" inputId="ingredient3" name="pizza" value="Роботизированная" />
+                                <RadioButton v-model="newAuto.gear" inputId="ingredient3" name="pizza" value="Роботизированная" />
                                 <label for="ingredient3" class="ml-2">Роботизированная </label>
                             </div>
                             <div class="flex align-items-center">
-                                <RadioButton v-model="auto.gear" inputId="ingredient4" name="pizza" value="Вариативная" />
+                                <RadioButton v-model="newAuto.gear" inputId="ingredient4" name="pizza" value="Вариативная" />
                                 <label for="ingredient4" class="ml-2">Вариативная </label>
                             </div>
                         </div>
                     </div>
                         <div class="p-field">
                         <label for="travel">Пробег</label>
-                        <InputText v-model.number="auto.travel"  />
-                        <Slider v-model="auto.travel" max="500" />
+                        <Slider v-model="newAuto.travel" max="500" />
                     </div>
                 </div>
             </template>
             <template #footer>
-                <Button label="Reset" icon="pi pi-times" @click="toggleVisible()" text />
-                <Button label="Add" icon="pi pi-check" @click="toggleVisible()" autofocus />
+                <Button label="Reset" icon="pi pi-times" @click="clearAuto()" text />
+                <Button label="Add" icon="pi pi-check" @click="addAuto()" autofocus />
             </template>
             
         </Dialog>
@@ -80,22 +79,29 @@ import InputNumber from 'primevue/inputnumber';
 import Calendar from 'primevue/calendar';
 import ColorPicker from 'primevue/colorpicker';
 import Slider from 'primevue/slider';
+import {useAuto} from '@/composable/useAuto'
 
-import { useAuto } from '@/composable/useAuto';
-const {auto} = useAuto()
-
-console.log(auto.value);
 import { ref } from "vue";
 
-const value = ref(null);
 
 const visible = ref(false);
+
+const {newAuto,createAuto,loading, clear} = useAuto()
+
 
 const toggleVisible = () =>{
     visible.value = !visible.value
 }
 
-                    
+function clearAuto() {
+    clear()
+    toggleVisible()   
+}
+async function addAuto() {
+    await createAuto()
+    toggleVisible()
+}
+
 
 const brandLabel = [
   { brand: 'BMW' },
@@ -116,6 +122,17 @@ const brandLabel = [
   { brand: 'Renault' },
   { brand: 'Peugeot' },
 ]
+
+const cityLabel = [
+    {city: 'Almaty'},
+    {city: 'Nur-Sultan'},
+    {city: 'Shymkent'},
+    {city: 'Karaganda'},
+    {city: 'Aktobe'},
+    {city: 'Taraz'},
+    {city: 'Pavlodar'}
+]
+
 </script>
 
 <style scoped>

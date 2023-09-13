@@ -7,10 +7,7 @@ import { async } from '@firebase/util';
 
 const {auto, createAuto} = useAuto()
 
-onMounted(async () =>{
-    await createAuto()
-    
-})
+
 
 const googleRegister = () => {
   const auth = getAuth()

@@ -1,11 +1,13 @@
 import { collection, getDocs, addDoc } from 'firebase/firestore'
 import { db } from '@/firebases'
 import { getStorage, uploadBytes, getDownloadURL } from 'firebase/storage'
-import { ref } from 'vue'
+import { ref , computed} from 'vue'
+import { createId, formatDate } from '@/services/methods'
+
 
 export const useAuto = () => {
   const auto = ref({
-    id: '',
+    id: createId(),
     brand: '',
     price: '',
     saled: false,
@@ -19,20 +21,47 @@ export const useAuto = () => {
     images: [],
   })
   const autoList = ref([])
-  const newAuto = ref({})
+
+  const newAuto = ref({
+    id: createId(),
+    brand: '',
+    price: '',
+    saled: '',
+    city: '',
+    carcase: '',
+    volume: '',
+    color: '',
+    gear: '',
+    year: '',
+    travel: 0,
+    image: null,
+    saled: false
+})
 
   const loading = ref({
-    auto: false,
     autoList: false,
     newAuto: false,
   })
 
+  const autoListRemake = computed(() => {
+    const _autoListRemake = autoList.value.map((auto) => {
+      auto.price = `${parseInt(auto.price)} KZT`
+      auto.volume = `${auto.volume} л`
+      auto.travel = `${auto.travel} км`
+      auto.year = formatDate(auto.year)
+      auto.age = `${new Date().getFullYear() - auto.year}г`
+      auto.color = `#${auto.color}`
+      return auto
+    })
+    return _autoListRemake || []
+  })
+ 
   async function createAuto() {
     loading.value.newAuto = true
     try {
-      // await addDoc(collection(db, 'autos'), auto.value).then(() => {
-      //   console.log('Cars added')
-      // })
+      await addDoc(collection(db, 'autos'), newAuto.value).then(async() => {
+        getAutoList()
+      })
     } catch (e) {
       console.error('Error: ', e)
     }
@@ -52,11 +81,31 @@ export const useAuto = () => {
     }
   }
 
+  function clear() {
+    const newAuto = {
+      id: '',
+      brand: '',
+      price: '',
+      saled: '',
+      city: '',
+      carcase: '',
+      volume: '',
+      color: '',
+      gear: '',
+      year: '',
+      travel: 0,
+      image: null,
+      saled: false
+    }
+    autoList.value = []
+    auto.value = null
+  } 
   return {
     createAuto,
     getAutoList,
-    auto,
-    autoList,
+    autoListRemake,
     loading,
+    newAuto,
+    clear,
   }
 }
