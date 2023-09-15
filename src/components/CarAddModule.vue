@@ -1,5 +1,5 @@
 <template>
-    <Button label="Show" icon="pi pi-external-link" @click="toggleVisible()" />
+    <Button label="Add car" icon="pi pi-car" @click="toggleVisible()" />
     <div class="card flex justify-content-center">
         <Dialog v-model:visible="visible" modal header="Add car" :style="{ width: '50vw' }">
             <template #default>

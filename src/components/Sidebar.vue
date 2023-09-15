@@ -62,9 +62,7 @@ const checked = ref(false);
             <div class="flex-auto">
                 <label for="phone">Phone</label><br>
                 <InputMask v-model="phone" @change="checkPhone()" date="phone" mask=" +9(999) 999-9999" placeholder="+9(999) 999-9999" />
-            </div>
-
-                    
+            </div>    
         </Sidebar>
         <i  class="pi pi-arrow-right" @click="visible = true" /> <span>Выдвигает sidebar</span>
     </div>
