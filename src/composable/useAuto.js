@@ -100,6 +100,11 @@ export const useAuto = () => {
     autoList.value = []
     auto.value = null
   } 
+
+  async function upload() {
+
+  }
+
   return {
     createAuto,
     getAutoList,

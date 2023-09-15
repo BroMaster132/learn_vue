@@ -6,7 +6,7 @@
                 <div class="p-fluid">
                     <div class="p-field">
                         <label for="brand">Бренд</label>
-                        <Dropdown id="brand" v-model="newAuto.brand" editable :options="brandLabel" option-label="brand" option-value="brand" placeholder="Бренд" />
+                        <Dropdown id="brand" v-model="newAuto.brand"  :options="brandLabel" optionLabel="brand" placeholder="brand" option-value="brand"  />
                     </div>
                     <div class="p-field">
                         <label for="price">Цена</label>
@@ -22,7 +22,7 @@
                     </div>
                     <div class="p-field">
                         <label for="color">Цвет</label>
-                        <ColorPicker id="color" v-model="newAuto.color" inline />
+                        <ColorPicker id="color" v-model="newAuto.color"  />
                     </div>
                     <div class="p-field">
                         <label for="city">Город</label>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="p-field">
                         <label for="carcase">Кузов</label>
-                        <Dropdown id="carcase" v-model="newAuto.carcase" editable :options="brandLabel" option-label="carcase" option-value="carcase" placeholder="Кузов" />
+                        <Dropdown id="carcase" v-model="newAuto.carcase" editable :options="carcaseLabel" option-label="carcase" option-value="carcase" placeholder="Кузов" />
                     </div>
                     <div class="p-field">
                         <label for="gear">Коробка</label>
@@ -58,6 +58,10 @@
                         <Slider v-model="newAuto.travel" max="500" />
                     </div>
                 </div>
+                <div class="p-field">
+                    <label for="photo">Картинки</label>
+                    <FileUpload v-model="newAuto.image" mode="basic"  accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
+                </div>
             </template>
             <template #footer>
                 <Button label="Reset" icon="pi pi-times" @click="clearAuto()" text />
@@ -70,6 +74,7 @@
 
         
 <script setup>
+import FileUpload from 'primevue/fileupload';
 import RadioButton from 'primevue/radiobutton';
 import Dialog from 'primevue/dialog';
 import Button from 'primevue/button';
@@ -80,13 +85,20 @@ import Calendar from 'primevue/calendar';
 import ColorPicker from 'primevue/colorpicker';
 import Slider from 'primevue/slider';
 import {useAuto} from '@/composable/useAuto'
-
 import { ref } from "vue";
+import { useToast } from "primevue/usetoast";
+
+const toast = useToast();
+
+const onUpload = () => {
+    toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
+
+};
 
 
 const visible = ref(false);
 
-const {newAuto,createAuto,loading, clear} = useAuto()
+const {newAuto,createAuto,loading, clear, upload} = useAuto()
 
 
 const toggleVisible = () =>{
@@ -123,6 +135,16 @@ const brandLabel = [
   { brand: 'Peugeot' },
 ]
 
+const carcaseLabel = [
+    {carcase: 'Внедорожник'},
+    {carcase: 'Седан'},
+    {carcase: 'Купе'},
+    {carcase: 'Хэтчбек'},
+    {carcase: 'Лифтбек'},
+    {carcase: 'Фастбэк'},
+    {carcase: 'Универсал'},
+    {carcase: 'Кроссовер'}
+]
 const cityLabel = [
     {city: 'Almaty'},
     {city: 'Nur-Sultan'},
