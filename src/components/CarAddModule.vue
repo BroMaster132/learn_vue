@@ -59,8 +59,15 @@
                     </div>
                 </div>
                 <div class="p-field">
-                    <label for="photo">Картинки</label>
-                    <FileUpload v-model="newAuto.image" mode="basic"  accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
+                    <form class="input__wrapper" enctype="multipart/form-data">
+                        <input id="inputfile" class="input inputfile" name="images" type="file" accept="image/*" @input="onUpload($event)" />
+                        <label for="inputfile" class="inputfile-button">
+                          <span class="input__file-icon-wrapper">
+                            <img class="input__file-icon" src="@/assets/uploadImage.png" alt="Выбрать файл" width="25" />
+                          </span>
+                          <span class="input__file-button-text">Машинка</span>
+                        </label>
+                    </form>
                 </div>
             </template>
             <template #footer>
@@ -79,30 +86,27 @@ import RadioButton from 'primevue/radiobutton';
 import Dialog from 'primevue/dialog';
 import Button from 'primevue/button';
 import Dropdown from 'primevue/dropdown';
-import InputText from 'primevue/inputtext';
 import InputNumber from 'primevue/inputnumber';
 import Calendar from 'primevue/calendar';
 import ColorPicker from 'primevue/colorpicker';
 import Slider from 'primevue/slider';
 import {useAuto} from '@/composable/useAuto'
 import { ref } from "vue";
-import { useToast } from "primevue/usetoast";
 
-const toast = useToast();
-
-const onUpload = () => {
-    toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
-
-};
 
 
 const visible = ref(false);
 
-const {newAuto,createAuto,loading, clear, upload} = useAuto()
+const {newAuto,createAuto, clear, uploadImage} = useAuto()
 
 
 const toggleVisible = () =>{
     visible.value = !visible.value
+}
+
+async function onUpload(e) {
+  const image = e.target.files[0]
+  await uploadImage(image)
 }
 
 function clearAuto() {

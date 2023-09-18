@@ -21,9 +21,6 @@ const carRemake = computed(() =>{
     }
   })
 
-  const autoListRemake = computed(() => {
-
-  })
 function changeColor (color){
     const crappyColors = ['#FF0000','#00FF00','#0000FF']
     if(crappyColors.includes(color)){
@@ -39,7 +36,7 @@ function changeColor (color){
 
   <Card style="width: 25em">
     <template #header>
-          <!-- <img :src="carRemake.image" alt="car" class="car-image"> -->
+          <img style="width: 350px;" :src="carRemake.image" alt="car" class="car-image">
     </template>
     <template #title>{{carRemake.brand }}</template>
     <template #content>

@@ -5,7 +5,7 @@ import {useAuto} from '@/composable/useAuto'
 
 const {autoListRemake, getAutoList} = useAuto()
 
-console.log(getAutoList());
+getAutoList()
 defineProps ({
     cars: {
         type: Array,
