@@ -6,7 +6,7 @@
                 <div class="p-fluid">
                     <div class="p-field">
                         <label for="brand">Бренд</label>
-                        <Dropdown id="brand" v-model="newAuto.brand"  :options="brandLabel" optionLabel="brand" placeholder="brand" option-value="brand"  />
+                        <Dropdown id="brand" v-model="newAuto.brand"  :options="brandLabel" optionLabel="brand" placeholder="Бренд" option-value="brand"  />
                     </div>
                     <div class="p-field">
                         <label for="price">Цена</label>
@@ -21,16 +21,17 @@
                         <InputNumber id="volume" v-model="newAuto.volume" inputId="minmax" :min="0.5" :max="45" />
                     </div>
                     <div class="p-field">
-                        <label for="color">Цвет</label>
-                        <ColorPicker id="color" v-model="newAuto.color"  />
+                        <label for="color">Цвет:</label>
+                        <br>
+                        <ColorPicker id="color" style="width: 100px" v-model="newAuto.color"  />
                     </div>
                     <div class="p-field">
                         <label for="city">Город</label>
-                        <Dropdown id="city" v-model="newAuto.city" editable :options="cityLabel" option-label="city" option-value="city" placeholder="Город" />
+                        <Dropdown id="city" v-model="newAuto.city"  :options="cityLabel" option-label="city" option-value="city" placeholder="Город" />
                     </div>
                     <div class="p-field">
                         <label for="carcase">Кузов</label>
-                        <Dropdown id="carcase" v-model="newAuto.carcase" editable :options="carcaseLabel" option-label="carcase" option-value="carcase" placeholder="Кузов" />
+                        <Dropdown id="carcase" v-model="newAuto.carcase"  :options="carcaseLabel" option-label="carcase" option-value="carcase" placeholder="Кузов" />
                     </div>
                     <div class="p-field">
                         <label for="gear">Коробка</label>
@@ -74,14 +75,12 @@
                 <Button label="Reset" icon="pi pi-times" @click="clearAuto()" text />
                 <Button label="Add" icon="pi pi-check" @click="addAuto()" autofocus />
             </template>
-            
         </Dialog>
     </div>
 </template>
 
         
 <script setup>
-import FileUpload from 'primevue/fileupload';
 import RadioButton from 'primevue/radiobutton';
 import Dialog from 'primevue/dialog';
 import Button from 'primevue/button';
@@ -102,6 +101,7 @@ const {newAuto,createAuto, clear, uploadImage} = useAuto()
 
 const toggleVisible = () =>{
     visible.value = !visible.value
+    console.log(1);
 }
 
 async function onUpload(e) {

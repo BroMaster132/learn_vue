@@ -6,7 +6,7 @@ import InputText from 'primevue/inputtext';
 import Toast from 'primevue/toast';
 import InputSwitch from 'primevue/inputswitch';
 import InputMask from 'primevue/inputmask';
-
+import Button from 'primevue/button';
 import { useToast } from "primevue/usetoast";
 const toast = useToast();
 
@@ -41,6 +41,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
 })
 
 
+
 const checked = ref(false);
 </script>
 
@@ -49,7 +50,8 @@ const checked = ref(false);
     <Toast />
     <div class="card flex justify-content-center">
         <Sidebar v-model:visible="visible">
-            <h2>Sidebar</h2>
+            
+            <h2>Sing in</h2>
              <div class="card flex justify-content-center" id="theme" > <!--Dont work yet -->
                 <InputSwitch v-model="checked" />
                 <br><span>Light/Dark Theme</span>
@@ -64,7 +66,7 @@ const checked = ref(false);
                 <InputMask v-model="phone" @change="checkPhone()" date="phone" mask=" +9(999) 999-9999" placeholder="+9(999) 999-9999" />
             </div>    
         </Sidebar>
-        <i  class="pi pi-arrow-right" @click="visible = true" /> <span>Выдвигает sidebar</span>
+        <Button class='sign_in'  label='SideBar' @click="visible = true"/> <!--Is developing-->
     </div>
 
 </template>

@@ -117,6 +117,7 @@ export const useAuto = () => {
           getDownloadURL(storageRef)
             .then((downloadURL) => {
               newAuto.value.image = downloadURL
+              console.log(downloadURL);
             })
             .catch((error) => {
               console.error('Ошибка получения ссылки на загруженный файл:', error)
