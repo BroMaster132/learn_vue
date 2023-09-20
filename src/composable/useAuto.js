@@ -7,20 +7,7 @@ import * as firebase from 'firebase/storage'
 
 
 export const useAuto = () => {
-  const auto = ref({
-    id: createId(),
-    brand: '',
-    price: '',
-    saled: false,
-    city: '',
-    carcase: '',
-    volume: '',
-    color: '',
-    gear: '',
-    year: '',
-    travel: '',
-    images: [],
-  })
+
   const autoList = ref([])
 
   const newAuto = ref({
@@ -43,6 +30,8 @@ export const useAuto = () => {
     autoList: false,
     newAuto: false,
   })
+
+  const auto = ref(null)
 
   const autoListRemake = computed(() => {
     const _autoListRemake = autoList.value.map((auto) => {
@@ -102,6 +91,21 @@ export const useAuto = () => {
     auto.value = null
   } 
 
+  async function getAuto(id) {
+    loading.value.auto = true
+    try {
+      const querySnapshot = await getDocs(collection(db,'autos'))
+      querySnapshot.forEach((doc) =>{
+        if(doc.data().id === id){
+          auto.value = doc.data()
+        }
+      })
+    } catch (e) {
+      console.error('Error: ', e);
+    } finally {
+      loading.value.auto = false
+    }
+  }
 
   async function uploadImage(file) {
       console.log(file)
@@ -136,5 +140,7 @@ export const useAuto = () => {
     newAuto,
     clear,
     uploadImage,
+    getAuto,
+    auto,
   }
 }

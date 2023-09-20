@@ -15,6 +15,11 @@ const router = createRouter({
       component: () => import('@/views/CardsPage.vue'),
     },
     {
+      path: '/car/:id',
+      name: 'car',
+      component: () => import('@/views/CarIdPage.vue'),
+    },
+    {
       path: '/profile',
       name: 'profile',
       component: () => import('@/views/ProfilePage.vue'),

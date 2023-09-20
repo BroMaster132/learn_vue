@@ -14,7 +14,7 @@
                     </div>
                     <div class="p-field">
                         <label for="year">Год</label>
-                        <Calendar id="year" v-model="newAuto.year" view="year" dateFormat="yy" />
+                        <Calendar id="year" v-model="newAuto.year" editable view="year" dateFormat="yy" />
                     </div>
                     <div class="p-field">
                         <label for="volume">Объем</label>

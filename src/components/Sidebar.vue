@@ -66,7 +66,7 @@ const checked = ref(false);
                 <InputMask v-model="phone" @change="checkPhone()" date="phone" mask=" +9(999) 999-9999" placeholder="+9(999) 999-9999" />
             </div>    
         </Sidebar>
-        <Button class='sign_in'  label='SideBar' @click="visible = true"/> <!--Is developing-->
+        <Button class='sign_in' icon="pi-cog"  label='SideBar' @click="visible = true"/> <!--Is developing-->
     </div>
 
 </template>
