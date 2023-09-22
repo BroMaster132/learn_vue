@@ -24,7 +24,7 @@ import { useAuto } from '@/composable/useAuto';
 import ColorPicker from 'primevue/colorpicker';
 
 const {autoListRemake, getAutoList, loading} = useAuto()
-
+console.log(autoListRemake);
 onMounted(() =>{
   getAutoList()
 })

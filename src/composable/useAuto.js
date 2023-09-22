@@ -45,6 +45,8 @@ export const useAuto = () => {
     })
     return _autoListRemake || []
   })
+
+
  
   async function createAuto() {
     loading.value.newAuto = true
@@ -90,6 +92,7 @@ export const useAuto = () => {
     autoList.value = []
     auto.value = null
   } 
+
 
   async function getAuto(id) {
     loading.value.auto = true
@@ -141,6 +144,6 @@ export const useAuto = () => {
     clear,
     uploadImage,
     getAuto,
-    auto,
+    auto
   }
 }
