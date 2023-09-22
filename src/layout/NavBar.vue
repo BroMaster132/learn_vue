@@ -4,7 +4,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import Menubar from 'primevue/menubar';
 import CarAddModule from '../components/CarAddModule.vue';
 import { ref } from "vue";
-import Sidebar from '@/components/SideBar.vue';
+import Sidebar from '@/components/Sidebar.vue';
 import { useRoute} from 'vue-router'
 
 const route = useRoute()
