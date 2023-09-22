@@ -1,8 +1,8 @@
 <template>
-    <div v-if="!autoRemake">
+    <div v-if="!auto">
         <skeleton />
     </div>
-    <div v-if="autoRemake">
+    <div v-if="auto">
         <Card style="width: 25em" >
             <template #header>
                 <img style="width: 350px;" :src="auto.image" alt="car" class="car-image">
