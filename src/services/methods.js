@@ -3,7 +3,6 @@ export function createId() {
 }
 
 export function formatDate(date) {
-    console.log(date);
     const _date = new Date(date * 1000)
     const year = _date.getFullYear()
   
