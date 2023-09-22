@@ -8,3 +8,4 @@ export function formatDate(date) {
   
     return  Number(year)
 }
+
