@@ -12,7 +12,6 @@ import  CarList  from "@/components/CarList.vue"
 .cards{
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between ;
-    align-content: space-around;
+    justify-content: left ;
 }
 </style>

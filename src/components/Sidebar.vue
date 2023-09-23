@@ -6,7 +6,6 @@ import InputText from 'primevue/inputtext';
 import Toast from 'primevue/toast';
 import InputSwitch from 'primevue/inputswitch';
 import InputMask from 'primevue/inputmask';
-import Button from 'primevue/button';
 import { useToast } from "primevue/usetoast";
 import 'primeicons/primeicons.css';
 
@@ -18,6 +17,7 @@ const toast = useToast();
 const showInfo = () => {
     toast.add({ severity: 'info', summary: 'Info Message', detail: 'Message Content', life: 3000 });
 };
+
 
 const showWarn = () => {
     toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Fill the form', life: 3000 });
@@ -48,15 +48,15 @@ window.addEventListener("DOMContentLoaded", ()=>{
 
 const checked = ref(false);
 
-
+    
+const modal = ref(false);
 
 </script>
 
 
 <template>
-    <button @click="isDark">Click</button>
     <Toast />
-    <div class="card flex justify-content-center">
+
         <Sidebar v-model:visible="visible">
             <h2>Sing in</h2>
              <div class="card flex justify-content-center" id="theme" > <!--Dont work yet -->
@@ -74,10 +74,7 @@ const checked = ref(false);
             </div>    
         </Sidebar>
         <i class="pi pi-cog" @click="visible = true" />
-        <Button class='sign_in' label='Sign in' @click="visible = true"/> <!--Is developing-->
-        <!-- <Button class='sign_in'  label='Sign in' @click="googleRegister()"/> Is developing -->
-        <Button class='sign_out'  label='Sign up' @click="checker()"/> <!--Is developing-->
-    </div>
+
 
 </template>
 
@@ -91,7 +88,5 @@ const checked = ref(false);
         display: flex;
         flex-direction: row;
     }
-    .sign_in{
-        margin-right: 20px;
-    }
+
 </style>

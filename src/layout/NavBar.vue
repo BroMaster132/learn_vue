@@ -1,12 +1,10 @@
 <script setup>
-import Button from 'primevue/button'
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import Menubar from 'primevue/menubar';
 import CarAddModule from '../components/CarAddModule.vue';
 import { ref } from "vue";
 import Sidebar from '@/components/Sidebar.vue';
 import { useRoute} from 'vue-router'
-
+import SignIn from '../components/SignIn.vue';
 const route = useRoute()
 
 const items = ref([
@@ -46,16 +44,6 @@ const items = ref([
     },
 ]);
 
-
-
-
-
-
-
-
-function googleOut(){
-    localStorage.removeItem('user')
-}
 console.log(items);
 </script>
 
@@ -69,6 +57,7 @@ console.log(items);
             </template>
             <template class="end" #end>
                 <Sidebar />
+                <SignIn />
             </template>
             <template #item="{ label, item, props, root, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
@@ -82,7 +71,6 @@ console.log(items);
                     <span v-bind="props.label">{{ label }}</span>
                     <span :class="[hasSubmenu && (root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right')]" v-bind="props.submenuicon" />
                 </a>
-                
             </template>
         </Menubar>
     </div>
