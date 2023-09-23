@@ -39,7 +39,7 @@ export const useAuto = () => {
       auto.volume = `${auto.volume} л`
       auto.travel = `${auto.travel} км`
       auto.year = formatDate(auto.year)
-      auto.age = `${new Date().getFullYear() - auto.year}г`
+      auto.age = `${new Date().getFullYear() - auto.year} г`
       auto.color = `#${auto.color}`
       return auto
     })

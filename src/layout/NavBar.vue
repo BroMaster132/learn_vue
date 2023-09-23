@@ -69,8 +69,6 @@ console.log(items);
             </template>
             <template class="end" #end>
                 <Sidebar />
-                <Button class='sign_in'  label='Sign in' @click="googleRegister()"/> <!--Is developing-->
-                <Button class='sign_out'  label='Sign out' @click="checker()"/> <!--Is developing-->
             </template>
             <template #item="{ label, item, props, root, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
@@ -98,8 +96,6 @@ console.log(items);
     display: flex;
     flex-direction: row;
 }
-.sign_in{
-    margin-right: 20px;
-}
+
 
 </style>

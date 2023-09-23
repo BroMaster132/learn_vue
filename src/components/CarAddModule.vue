@@ -1,4 +1,5 @@
 <template>
+    <Toast />
     <Button label="Add car" icon="pi pi-car" @click="toggleVisible()" />
     <div class="card flex justify-content-center">
         <Dialog v-model:visible="visible" modal header="Add car" :style="{ width: '50vw' }">
@@ -14,7 +15,7 @@
                     </div>
                     <div class="p-field">
                         <label for="year">Год</label>
-                        <Calendar id="year" v-model="newAuto.year" editable view="year" dateFormat="yy" />
+                        <Calendar id="year" v-model="newAuto.year" view="year" dateFormat="yy" />
                     </div>
                     <div class="p-field">
                         <label for="volume">Объем</label>
@@ -89,10 +90,11 @@ import InputNumber from 'primevue/inputnumber';
 import Calendar from 'primevue/calendar';
 import ColorPicker from 'primevue/colorpicker';
 import Slider from 'primevue/slider';
+import {useToast} from 'primevue/usetoast'
 import {useAuto} from '@/composable/useAuto'
 import { ref } from "vue";
 
-
+const toast = useToast()
 
 const visible = ref(false);
 
@@ -101,8 +103,12 @@ const {newAuto,createAuto, clear, uploadImage} = useAuto()
 
 const toggleVisible = () =>{
     visible.value = !visible.value
-    console.log(1);
 }
+
+
+const showWarn = () => {
+    toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Fill all of the forms', life: 2000 });
+};
 
 async function onUpload(e) {
   const image = e.target.files[0]
@@ -113,10 +119,17 @@ function clearAuto() {
     clear()
     toggleVisible()   
 }
+
 async function addAuto() {
-    await createAuto()
-    toggleVisible()
+    if (newAuto.value.brand === '' || newAuto.value.price === '' || newAuto.value.year === '' || newAuto.value.volume === '' || newAuto.value.color === '' || newAuto.value.city === '' || newAuto.value.carcase === ''  || newAuto.value.gear === '' ) {
+        showWarn()
+    }
+    else{
+        await createAuto()
+        toggleVisible()
+    }
 }
+
 
 
 const brandLabel = [

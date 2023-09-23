@@ -8,6 +8,10 @@ import InputSwitch from 'primevue/inputswitch';
 import InputMask from 'primevue/inputmask';
 import Button from 'primevue/button';
 import { useToast } from "primevue/usetoast";
+import 'primeicons/primeicons.css';
+
+
+
 const toast = useToast();
 
 
@@ -43,18 +47,21 @@ window.addEventListener("DOMContentLoaded", ()=>{
 
 
 const checked = ref(false);
+
+
+
 </script>
 
 
 <template>
+    <button @click="isDark">Click</button>
     <Toast />
     <div class="card flex justify-content-center">
         <Sidebar v-model:visible="visible">
-            
             <h2>Sing in</h2>
              <div class="card flex justify-content-center" id="theme" > <!--Dont work yet -->
                 <InputSwitch v-model="checked" />
-                <br><span>Light/Dark Theme</span>
+                <span style="margin-left: 10px ;">Light/Dark Theme</span>
             </div>
             <br>
             <div class="card flex justify-content-center" >
@@ -66,7 +73,10 @@ const checked = ref(false);
                 <InputMask v-model="phone" @change="checkPhone()" date="phone" mask=" +9(999) 999-9999" placeholder="+9(999) 999-9999" />
             </div>    
         </Sidebar>
-        <Button class='sign_in' icon="pi-cog"  label='SideBar' @click="visible = true"/> <!--Is developing-->
+        <i class="pi pi-cog" @click="visible = true" />
+        <Button class='sign_in' label='Sign in' @click="visible = true"/> <!--Is developing-->
+        <!-- <Button class='sign_in'  label='Sign in' @click="googleRegister()"/> Is developing -->
+        <Button class='sign_out'  label='Sign up' @click="checker()"/> <!--Is developing-->
     </div>
 
 </template>
@@ -74,9 +84,14 @@ const checked = ref(false);
 <style scoped>
     i {
         cursor: pointer;
+        margin-right: 40px;
+        font-size: 22pt;
     }   
     #theme{
         display: flex;
         flex-direction: row;
+    }
+    .sign_in{
+        margin-right: 20px;
     }
 </style>

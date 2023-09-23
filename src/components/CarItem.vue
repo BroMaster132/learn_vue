@@ -56,7 +56,7 @@ function changeColor (color){
         <p>Коробка передачи: {{autoRemake.gear}}</p>
         <p>Кузов: {{autoRemake.carcase }}</p>
       </template>
-      <template #footer>
+      <!-- <template #footer>
         <div class="chipes">
           <Chip v-if="Number(autoRemake.price.slice(0,-1)) > 1000000" label="Дорогой" icon="pi pi-dollar" />
           <Chip v-else-if="autoRemake.year <= 2000" label="Старый" icon="pi pi-facebook" />
@@ -64,15 +64,18 @@ function changeColor (color){
           <Chip v-else label="Скучный" icon="pi pi-briefcase" />
           <Chip v-show="autoRemake.volume > 2" label="Большой объём" icon="pi pi-arrow-up" removable />
       </div>
-      </template>
+      </template> -->
     </Card>
   </div>
 </template>
 
 <style scoped>
-  .cards {
-    cursor: pointer;
-  }
+
+:deep(.p-card) {
+  cursor: pointer;
+  height: 600px;
+  margin: 30px ;
+}
     .chipes {
       display: flex;
       justify-content: space-between;
