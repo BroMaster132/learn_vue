@@ -43,7 +43,7 @@ function changeColor (color){
   <div class="cards">
     <Card style="width: 25em" >
       <template #header>
-            <img style="width: 350px; height-max: 250px; " :src="autoRemake.image" alt="car" class="car-image">
+            <img style="width: 350px; max-height: 200px; " :src="autoRemake.image" alt="car" class="car-image">
       </template>
       <template #title>{{autoRemake.brand }}</template>
       <template #content>
@@ -75,6 +75,7 @@ function changeColor (color){
   cursor: pointer;
   height: 600px;
   margin: 30px ;
+  
 }
     .chipes {
       display: flex;
