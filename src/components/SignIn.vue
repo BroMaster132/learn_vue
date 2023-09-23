@@ -53,7 +53,7 @@ const visible = ref(false);
                         <Divider layout="vertical" class="hidden md:flex"><b>OR</b></Divider>
                     </div>
                     <div class="sign_up">
-                        <Button label="Sign Up" icon="pi pi-user-plus" severity="success" class="w-10rem"></Button>
+                        <Button label="Sign Up" icon="pi pi-user-plus" severity="success" @click="Register()" class="w-10rem"></Button>
                     </div>
                 </div>
             </div>

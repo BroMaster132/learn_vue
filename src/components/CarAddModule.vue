@@ -121,7 +121,7 @@ function clearAuto() {
 }
 
 async function addAuto() {
-    if (newAuto.value.brand === '' || newAuto.value.price === '' || newAuto.value.year === '' || newAuto.value.volume === '' || newAuto.value.color === '' || newAuto.value.city === '' || newAuto.value.carcase === ''  || newAuto.value.gear === '' ) {
+    if (newAuto.value.brand === '' || newAuto.value.price === '' || newAuto.value.year === '' || newAuto.value.volume === '' || newAuto.value.city === '' || newAuto.value.carcase === ''  || newAuto.value.gear === '' ) {
         showWarn()
     }
     else{
