@@ -40,9 +40,9 @@ function checkPhone(value) {
     }
 }
 
-window.addEventListener("DOMContentLoaded", ()=>{
-    showInfo()
-})
+// window.addEventListener("DOMContentLoaded", ()=>{
+//     showInfo()
+// })
 
 
 
