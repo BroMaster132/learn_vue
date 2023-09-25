@@ -28,7 +28,7 @@ const visible = ref(false);
     <Button class='sign_in' label='Sign in' @click="visible = true"/> <!--Is developing-->
     <Button class='sign_out'  label='Sign up' @click="visible = true"/> <!--Is developing-->
     <div class="card flex justify-content-center">
-        <Dialog v-model:visible="visible" st modal header="Sign in // Sign up to the website" :style="{ width: '50vw'}">
+        <Dialog v-model:visible="visible" st modal header="Sign in // Sign up to the website" :style="{ width: '40vw'}">
             <div class="card">
                 <div class="Modal">
                     <div class="w-full md:w-5 flex flex-column align-items-center justify-content-center gap-3 py-5">
@@ -76,6 +76,6 @@ i {
     margin: auto;
 }
 .divider {
-    margin-left: 200px;
+    margin-left: 220px;
 }
 </style>

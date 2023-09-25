@@ -6,7 +6,7 @@ import router from './router'
 import PrimeVue from 'primevue/config';
 import 'primevue/resources/themes/saga-blue/theme.css'
 import 'primevue/resources/primevue.min.css'
-import 'primevue/resources/themes/viva-light/theme.css'
+// import 'primevue/resources/themes/viva-light/theme.css'
 import 'primevue/resources/themes/viva-dark/theme.css'
 import { initializeApp } from "firebase/app";
 import ToastService from 'primevue/toastservice';

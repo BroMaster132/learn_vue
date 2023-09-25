@@ -8,14 +8,14 @@ import InputSwitch from 'primevue/inputswitch';
 import InputMask from 'primevue/inputmask';
 import { useToast } from "primevue/usetoast";
 import 'primeicons/primeicons.css';
-
-
+import {useDark, useToggle} from '@vueuse/core'
+ 
 
 const toast = useToast();
 
 
 const showInfo = () => {
-    toast.add({ severity: 'info', summary: 'Info Message', detail: 'Message Content', life: 3000 });
+    toast.add({ severity: 'info', summary: 'Info Message', detail: 'The website has been loaded', life: 3000 });
 };
 
 
@@ -40,16 +40,14 @@ function checkPhone(value) {
     }
 }
 
-// window.addEventListener("DOMContentLoaded", ()=>{
-//     showInfo()
-// })
+window.addEventListener("DOMContentLoaded", ()=>{
+    showInfo()
+})
 
 
 
 const checked = ref(false);
 
-    
-const modal = ref(false);
 
 </script>
 
@@ -58,10 +56,10 @@ const modal = ref(false);
     <Toast />
 
         <Sidebar v-model:visible="visible">
-            <h2>Sing in</h2>
+            <h2>Settings</h2>
              <div class="card flex justify-content-center" id="theme" > <!--Dont work yet -->
-                <InputSwitch v-model="checked" />
-                <span style="margin-left: 10px ;">Light/Dark Theme</span>
+                <InputSwitch v-model="checked"/> <!--Dont work yet -->
+                <span style="margin-left: 10px ;">Light/Dark Theme</span> <!--Dont work yet -->
             </div>
             <br>
             <div class="card flex justify-content-center" >

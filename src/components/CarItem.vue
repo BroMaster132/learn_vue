@@ -41,7 +41,7 @@ function changeColor (color){
 
 <template>
   <div class="cards">
-    <Card style="width: 25em" >
+    <Card class="animation" style="width: 25em" >
       <template #header>
             <img style="width: 350px; max-height: 200px; " :src="autoRemake.image" alt="car" class="car-image">
       </template>
@@ -75,15 +75,15 @@ function changeColor (color){
   cursor: pointer;
   height: 600px;
   margin: 30px ;
-  
 }
-    .chipes {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: column;
-    }
+.chipes {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+:deep(.p-disabled){
+  opacity: 1 !important;
+}
+  
 
-    :deep(.p-disabled){
-      opacity: 1 !important;
-    }
 </style>

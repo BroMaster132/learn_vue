@@ -60,16 +60,9 @@
                         <Slider v-model="newAuto.travel" max="500" />
                     </div>
                 </div>
-                <div class="p-field">
-                    <form class="input__wrapper" enctype="multipart/form-data">
-                        <input id="inputfile" class="input inputfile" name="images" type="file" accept="image/*" @input="onUpload($event)" />
-                        <label for="inputfile" class="inputfile-button">
-                          <span class="input__file-icon-wrapper">
-                            <img class="input__file-icon" src="@/assets/uploadImage.png" alt="Выбрать файл" width="25" />
-                          </span>
-                          <span class="input__file-button-text">Машинка</span>
-                        </label>
-                    </form>
+                <br>
+                <div class="custom-button">
+                    <FileUpload mode="basic" name="demo[]" url="./useAuto.js" accept="image/*" :maxFileSize="1000000" @input="onUpload($event)" />
                 </div>
             </template>
             <template #footer>
@@ -90,6 +83,7 @@ import InputNumber from 'primevue/inputnumber';
 import Calendar from 'primevue/calendar';
 import ColorPicker from 'primevue/colorpicker';
 import Slider from 'primevue/slider';
+import FileUpload from 'primevue/fileupload';
 import {useToast} from 'primevue/usetoast'
 import {useAuto} from '@/composable/useAuto'
 import { ref } from "vue";
@@ -97,6 +91,10 @@ import { ref } from "vue";
 const toast = useToast()
 
 const visible = ref(false);
+
+function test(data){
+    console.log(data);
+}
 
 const {newAuto,createAuto, clear, uploadImage} = useAuto()
 
@@ -175,5 +173,8 @@ const cityLabel = [
 </script>
 
 <style scoped>
+
+
+
 
 </style>
