@@ -6,6 +6,16 @@ import InputText from 'primevue/inputtext';
 import Divider from 'primevue/divider';
 import 'primeicons/primeicons.css';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
+import { useToast } from 'primevue/usetoast';
+
+const toast = useToast()
+
+
+const showWarn = () => {
+    toast.add({ severity: 'warn', summary: 'Warn Message', detail: "This function hasn't been added yet, because of the bad internet of owner", life: 3000 });
+};
+
+
 const googleRegister = () => {
   const auth = getAuth()
   const provider = new GoogleAuthProvider()
@@ -47,7 +57,11 @@ const visible = ref(false);
                         <br>
                         <Button label="Login" icon="pi pi-user" class="w-10rem"></Button>
                         <br><br>
-                        <i class="pi pi-google" @click="googleRegister" />
+                        <div>
+                            <i class="pi pi-google" @click="googleRegister" />
+                            <i class="pi pi-facebook" @click="showWarn" />
+                            <i class="pi pi-twitter" @click="showWarn" />
+                        </div>
                     </div>
                     <div class="divider">
                         <Divider layout="vertical" class="hidden md:flex"><b>OR</b></Divider>
@@ -63,6 +77,7 @@ const visible = ref(false);
 
 <style scoped>
 i {
+    margin-left: 10px;
     cursor: pointer;
 }
 .sign_in{
@@ -76,6 +91,6 @@ i {
     margin: auto;
 }
 .divider {
-    margin-left: 220px;
+    margin-left: 170px;
 }
 </style>

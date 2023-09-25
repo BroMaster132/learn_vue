@@ -15,7 +15,7 @@ const toast = useToast();
 
 
 const showInfo = () => {
-    toast.add({ severity: 'info', summary: 'Info Message', detail: 'The website has been loaded', life: 3000 });
+    toast.add({ severity: 'warn', summary: 'Warn Message', detail: "This website isn't nice , because of the bad internet of owner", life: 3000 });
 };
 
 

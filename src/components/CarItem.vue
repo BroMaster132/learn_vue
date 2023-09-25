@@ -35,8 +35,6 @@ function changeColor (color){
     }
     return false
 }
-
-
 </script>
 
 <template>
@@ -85,5 +83,6 @@ function changeColor (color){
   opacity: 1 !important;
 }
   
+
 
 </style>

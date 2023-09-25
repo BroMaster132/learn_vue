@@ -2,8 +2,8 @@
     <div v-if="!auto">
         <skeleton />
     </div>
-    <div v-if="auto">
-        <Card style="width: 25em" >
+    <div class="div" v-if="auto">
+        <Card class="card" style="width: 25em" >
             <template #header>
                 <img style="width: 350px;" :src="auto.image" alt="car" class="car-image">
             </template>
@@ -60,5 +60,11 @@ i{
 }
 :deep(.p-disabled){
     opacity: 1 !important; 
+}
+.card {
+    margin: 50px;
+}
+.div {
+    height: 800px;
 }
 </style>

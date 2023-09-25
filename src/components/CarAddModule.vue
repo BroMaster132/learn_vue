@@ -92,9 +92,7 @@ const toast = useToast()
 
 const visible = ref(false);
 
-function test(data){
-    console.log(data);
-}
+
 
 const {newAuto,createAuto, clear, uploadImage} = useAuto()
 
