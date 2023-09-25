@@ -17,7 +17,7 @@ footer {
     text-align: center;
     padding: 20px 0;
     margin-top: 60px;
-    
+    background-color: rgb(31, 30, 30);
 }
 
 

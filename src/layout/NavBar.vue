@@ -9,39 +9,22 @@ const route = useRoute()
 
 const items = ref([
     {
+        label: 'Home',
+        icon: 'pi pi-home',
+        route: '/'
+    },
+    {
         label: 'Table',
-        icon: 'pi pi-fw pi-file',
+        icon: 'pi pi-bars',
         route: '/table'
     },
     {
         label: 'Cards',
-        icon: 'pi pi-fw pi-pencil',
+        icon: 'pi pi-car',
         route: '/cards'
     },
-    {
-        label: 'Something',
-        icon: 'pi pi-fw pi-user',
-    },
-    {
-        label: 'Something',
-        icon: 'pi pi-fw pi-calendar',
-    },
-    {
-        label: 'Something',
-        icon: 'pi pi-fw pi-file',
-    },
-    {
-        label: 'Something',
-        icon: 'pi pi-fw pi-pencil',
-    },
-    {
-        label: 'Something',
-        icon: 'pi pi-fw pi-user',
-    },
-    {
-        label: 'Something',
-        icon: 'pi pi-fw pi-calendar',
-    },
+
+
 ]);
 
 console.log(items);

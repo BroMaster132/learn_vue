@@ -1,5 +1,5 @@
 <template>
-  <DataTable :value="autoListRemake" :loading="loading.autoList">
+  <DataTable class="table" :value="autoListRemake" :loading="loading.autoList">
     <Column v-for="column in carColumns" :key="column.field" :field="column.field" :header="column.header">
       {{ column.field }}
       <template #body="slotProps">
@@ -45,6 +45,9 @@ const carColumns = [
 </script>
 
 <style scoped>
+.table {
+  height: 800px;
+}
 .dropdown {
   width: 100%;
 }
