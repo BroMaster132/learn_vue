@@ -58,7 +58,7 @@ const checked = ref(false);
         <Sidebar v-model:visible="visible">
             <h2>Settings</h2>
              <div class="card flex justify-content-center" id="theme" > <!--Dont work yet -->
-                <InputSwitch v-model="checked"/> <!--Dont work yet -->
+                <InputSwitch v-model="checked" @click="check()"/> <!--Dont work yet -->
                 <span style="margin-left: 10px ;">Light/Dark Theme</span> <!--Dont work yet -->
             </div>
             <br>

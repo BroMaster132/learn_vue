@@ -62,7 +62,7 @@
                 </div>
                 <br>
                 <div class="custom-button">
-                    <FileUpload mode="basic" name="demo[]" url="./useAuto.js" accept="image/*" :maxFileSize="1000000" @input="onUpload($event)" />
+                    <FileUpload mode="basic" name="demo[]" url="./useAuto.js" accept="image/*" chooseLabel="Upload image" :maxFileSize="1000000" @input="onUpload($event)" />
                 </div>
             </template>
             <template #footer>
